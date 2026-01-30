@@ -1,0 +1,14 @@
+{
+  "currentVersion": "2.2.0",
+  "previousVersion": "2.1.0",
+  "releaseDate": "2024-01-15",
+  "changelog": "• Notifications Firebase en arrière-plan\n• Badges d'icône d'application\n• Synchronisation périodique\n• Cache optimisé",
+  "mandatory": false,
+  "updateUrl": "./",
+  "features": [
+    "notifications_background",
+    "app_badges",
+    "offline_support",
+    "real_time_updates"
+  ]
+}

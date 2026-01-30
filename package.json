@@ -1,0 +1,15 @@
+{
+  "name": "cs-lacolombe-parent-notifications",
+  "version": "3.0.0",
+  "description": "Système de notifications temps réel pour PWA",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Ouvrez index.html dans un navigateur'",
+    "test": "echo 'Tests non configurés'"
+  },
+  "keywords": ["pwa", "notifications", "firebase", "education"],
+  "author": "CS La Colombe",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
