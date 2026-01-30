@@ -9981,10 +9981,46 @@ window.testBadges = function() {
 };
 </script>
 
-<!-- Ajoutez un bouton de test dans votre interface -->
-<button onclick="testBadges()" style="position: fixed; bottom: 60px; right: 20px; z-index: 9999;">
-  Test Badges
-</button>
+
+<script>
+// index.html - Activation de la synchronisation en arrière-plan
+async function registerBackgroundSync() {
+    if (!('serviceWorker' in navigator) || !('SyncManager' in window) || !('PeriodicSyncManager' in window)) {
+        console.warn("Les APIs de synchronisation en arrière-plan ne sont pas supportées.");
+        return;
+    }
+
+    try {
+        const registration = await navigator.serviceWorker.ready;
+
+        // 1. Enregistrer une synchronisation ponctuelle (pour le retour de connexion)
+        await registration.sync.register('background-data-sync');
+        console.log("✅ Sync ponctuelle enregistrée.");
+
+        // 2. Demander la permission pour la synchronisation périodique
+        const status = await navigator.permissions.query({ name: 'periodic-background-sync' });
+        if (status.state === 'granted') {
+            // 3. Enregistrer la synchronisation périodique
+            await registration.periodicSync.register('check-data-sync', {
+                minInterval: 15 * 60 * 1000, // Minimum 15 minutes
+            });
+            console.log("✅ Sync périodique enregistrée.");
+        } else {
+            console.log("Permission pour la sync périodique non accordée.");
+        }
+    } catch (e) {
+        console.error("Erreur lors de l'enregistrement des synchronisations :", e);
+    }
+}
+
+// Lancer l'enregistrement après la connexion de l'utilisateur
+// (à placer dans votre logique onAuthStateChanged ou après une connexion réussie)
+if (window.currentParent) {
+    registerBackgroundSync();
+}
+</script>
+
+
 </body>
 </html>    
     
