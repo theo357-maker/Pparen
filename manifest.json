@@ -9,19 +9,12 @@
   "orientation": "portrait-primary",
   "scope": "./",
   "lang": "fr",
-  
   "icons": [
     {
       "src": "icon-72x72.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "any maskable"
-    },
-    {
-      "src": "icon-96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "badge"
     },
     {
       "src": "icon-192x192.png",
@@ -36,23 +29,12 @@
       "purpose": "any maskable"
     }
   ],
-  
-  // Configuration Firebase
   "gcm_sender_id": "103953800507",
   "gcm_user_visible_only": true,
-  
-  // Pour les badges iOS
-  "ios": {
-    "supports_tablet": true,
-    "supports_push_notifications": true
-  },
-  
   "permissions": [
     "notifications",
-    "background"
+    "background",
+    "periodic-background-sync"
   ],
-  
-  "categories": ["education", "productivity"],
-  "prefer_related_applications": false,
-  "offline_enabled": true
+  "categories": ["education", "productivity"]
 }
