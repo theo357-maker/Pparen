@@ -30,7 +30,7 @@
     }
   ],
   "gcm_sender_id": "269629842962",
-  "gcm_user_visible_only": true,
+  "gcm_user_visible_only": false,
   "permissions": [
     "notifications",
     "background",
